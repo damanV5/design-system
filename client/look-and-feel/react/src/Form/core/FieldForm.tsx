@@ -190,11 +190,15 @@ export const addPropsClone = ({
     case "EnhancedInputRadio":
     case "EnhancedInputCheckbox":
       return {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         ...eventWrapperFn({ wrapper, props: child.props }),
         classModifier: messageClassModifier,
       };
     case "EnhancedInput":
       return {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         ...eventWrapperFn({ wrapper, props: child.props }),
       };
     default:
@@ -219,11 +223,17 @@ export const renderedChildren = ({
     }
 
     const props = {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       ...child.props,
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     if (child.props.children) {
       const subChildren = renderedChildren({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         children: child.props.children,
         wrapper,
         message,

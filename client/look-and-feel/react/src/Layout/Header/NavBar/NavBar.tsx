@@ -35,6 +35,8 @@ const NavBar = ({
         {React.Children.map(validChildren, (child, index) => (
           <li className="af-navbar-item" role="none">
             {React.cloneElement(child, {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
               className:
                 `af-navbar-item__link ${index === activeLink ? "af-navbar-item__link--active" : ""}`.trim(),
               onClick: () => setActiveLink(index),

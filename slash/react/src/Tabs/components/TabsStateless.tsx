@@ -36,9 +36,13 @@ const TabsStateless = ({
                 active={activeIndex === index.toString()}
                 onChange={onChange}
                 id={`${index}`}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 classModifier={child.props.classModifier}
                 key={`title-${index}`}
               >
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-expect-error */}
                 {child.props.title}
               </Title>
             ),
@@ -53,6 +57,8 @@ const TabsStateless = ({
                 active={activeIndex === index.toString()}
                 key={`pane-${index}`}
               >
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-expect-error */}
                 {child.props.children}
               </Pane>
             ),

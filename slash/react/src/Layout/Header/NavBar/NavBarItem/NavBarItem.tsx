@@ -86,6 +86,8 @@ const NavBarItem = ({
   const renderChild = useCallback(
     (child: ReactElement, childIndex: number) =>
       React.cloneElement(child, {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         classModifier:
           childIndex === position && isMenuOpen ? " active" : undefined,
         tabIndex: childIndex === position && isMenuOpen ? 0 : -1,

@@ -58,6 +58,8 @@ export const NavBarItemBase = ({
     >
       <actionElt.type
         key={actionElt.key}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         {...actionElt.props}
         {...otherProps}
         role={role}

@@ -8,6 +8,8 @@ type Props = {
 const ToggleButton = ({ children, idControl }: Props) =>
   isValidElement(children) &&
   cloneElement(children, {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     ...children.props,
     "aria-controls": idControl,
     "aria-haspopup": true,

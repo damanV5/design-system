@@ -57,8 +57,10 @@ const NavBar = ({ positionInit = 0, children, ...otherProps }: Props) => {
         const isCurrent = index === position;
         return React.cloneElement(child, {
           key: `NavBarItem`,
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           classModifier: [
-            child.props.classModifier,
+            (child.props as { classModifier?: string }).classModifier,
             isCurrent ? "active" : undefined,
           ]
             .filter((c) => Boolean(c))

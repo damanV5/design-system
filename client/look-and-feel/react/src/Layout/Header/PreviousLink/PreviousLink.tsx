@@ -33,9 +33,13 @@ const PreviousLink = ({
     <div className="af-header-previous-link-container" {...otherProps}>
       {React.Children.map(validChildren, (child) =>
         React.cloneElement(child, {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           children: (
             <>
               <Svg src={arrowBack} />
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+              {/* @ts-expect-error */}
               {child.props.children}
             </>
           ),

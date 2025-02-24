@@ -4,6 +4,7 @@ import {
   cloneElement,
   Dispatch,
   isValidElement,
+  type ReactElement,
   ReactNode,
   SetStateAction,
   useEffect,
@@ -147,7 +148,8 @@ export const eventWrapper = ({ wrapper, props }: EventWrapperProps) => ({
 });
 
 type AddPropsClone = Omit<RenderChildrenProps, "children"> & {
-  child: JSX.Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  child: ReactElement<any, any>;
   classModifier: string;
   name: string;
   getMessageClassModifierFn?: typeof FormClassManager.getMessageClassModifier;
@@ -215,11 +217,17 @@ export const renderedChildren = ({
     }
 
     const props = {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       ...child.props,
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     if (child.props.children) {
       const subChildren = renderedChildren({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         children: child.props.children,
         wrapper,
         message,
